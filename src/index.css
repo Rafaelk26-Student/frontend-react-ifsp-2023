@@ -1,0 +1,14 @@
+html,body{
+  margin: 0;
+}
+
+
+header{
+  display: flex;
+  justify-content: space-between;
+}
+
+nav ul{
+  gap: 10px;
+  font-size: larger;
+}
