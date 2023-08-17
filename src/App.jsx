@@ -1,8 +1,15 @@
+import Header from './Header.jsx'
+import Footer from './Footer.jsx'
+import Sidebar from './Sidebar.jsx'
 const App = () =>{
 
     
   return (  
-    <h1>App</h1>
+      <>
+        <Header />
+        <Sidebar />
+        <Footer />
+      </>
     )
 }
 
