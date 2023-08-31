@@ -2,6 +2,7 @@ import Home from './components/pages/Home'
 import About from './components/pages/About'
 import Contact from './components/pages/Contact'
 import Page404 from './components/pages/Page404'
+import Login from './components/pages/Logout'
 
 import {Routes, Route} from 'react-router-dom'
 
@@ -13,6 +14,7 @@ const App = () =>{
        <Route path='/' Component={Home} />
        <Route path='/about' Component={About} />
        <Route path='/contato' Component={Contact} />
+       <Route path='/login' Component={Login} />
        <Route path='/*' Component={Page404} />
       </Routes>
     )

@@ -19,3 +19,9 @@ header nav ul li a{
     color: #fff;
     text-decoration: none;
 }
+
+header nav ul li a.active{
+    color: #ff7700;
+    border-bottom: 3px solid orange;
+    padding: 5px;
+}
