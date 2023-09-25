@@ -2,29 +2,40 @@ import Header from "../layout/Header.jsx";
 import Sidebar from "../layout/Sidebar.jsx"
 import Main from "../layout/Principal.jsx";
 import CardUser from "../ui/CardUser.jsx";
+import { useEffect, useState } from "react";
 // Cria o Corpo da Página About
 
-const user = [
-  {
-    nome: "Rafael Kikuchi",
-    email: "rafaelk262002@gmail.com",
-    photo: "https://avatars.githubusercontent.com/u/112998186?s=400&u=a3ac84b5c64b767b58bc942ae11950524ccfca76&v=4"
-  },
-  {
-    nome:"Greife Silva",
-    email:"greifera.curso@gmail.com",
-    photo:"https://avatars.githubusercontent.com/u/99847920?v=4"
-  }  
-]
-
 const About = () => {
+
+  const [users, setUsers] = useState([])
+     
+
+  useEffect(()=>{
+    
+    const getUsers = async () => {
+      const response = await fetch('http://localhost:3300/user/list')
+      const data = await response.json()
+      console.log(data.success)
+      console.log(data.users)
+      setUsers(data.users)
+    }
+
+    getUsers()
+    
+  }, [])
+
   return (
     <>
       <Header />
         <h1>Sobre Nós</h1>
-        <CardUser user={user} />
-      <Sidebar />
-      <Main />
+        <Main>
+        <Sidebar />
+            {
+              users.length > 0 ? users.map((user) => {
+              return <CardUser key={user.id} user={user} />
+            }): <p>Carregando...</p>
+          }
+      </Main>
     </>
   );
 };

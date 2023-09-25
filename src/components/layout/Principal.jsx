@@ -1,9 +1,10 @@
 import './Principal.css'
 
-const Main = () => {
+
+const Main = ({children}) => {
   return (
     <main>
-        <p>Aqui fica o conteúdo da página</p>
+        {children}
     </main>
   )
 }
